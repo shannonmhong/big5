@@ -1,0 +1,18 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem;
+  min-height: 100vh;
+}
+
+@font-face {
+  font-family: "San Francisco";
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+
+body {
+  font-family: "San Francisco", BlinkMacSystemFont, -apple-system, system-ui,
+    sans-serif;
+}
