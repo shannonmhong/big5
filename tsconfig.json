@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "./dist",
     "types": ["@emotion/react/types/css-prop"],
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -24,6 +25,12 @@
     },
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "scripts/seed.ts"
+  ],
   "exclude": ["node_modules"]
 }

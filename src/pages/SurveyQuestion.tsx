@@ -67,7 +67,6 @@ const SurveyQuestion: React.FC<SurveyQuestionProps> = ({
               style={{
                 display: "flex",
                 justifyContent: "space-between",
-                // borderRadius: "6px",
               }}
             >
               <Flashing isFlashing={selectedValue === "1" && isFlashing}>

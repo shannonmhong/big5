@@ -6,6 +6,10 @@ import { FormDataItem } from "../Survey";
 import personalityDescriptions from "../../data/personalityDescriptions.json";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
+import { PersonalityResult, User } from "@prisma/client";
+import { CreateResultDTO } from "../api/personalityResults/create";
+import { CreateUserDTO } from "../api/users/create";
+import PersonalityChart from "./PersonalityChart";
 
 // Define interface for personality descriptions - describes structure of json
 interface PersonalityDescriptions {
@@ -41,7 +45,59 @@ const Results: React.FC<ResultsProps> = ({ formData }) => {
   });
   useEffect(() => {
     setTraitScores(calculateTraitScores());
-    // make post request here
+
+    // Create the user
+    fetch("/api/users/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        firstName: "",
+        lastName: "",
+        age: 0,
+        zipCode: "",
+        race: "",
+      } as CreateUserDTO),
+    }) // right now, only creating users with no other metadata
+      .then((response) => response.json())
+      .then((user: User | null) => {
+        if (user) {
+          // User created successfully, now create the personality result
+
+          fetch("/api/personalityResults/create", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              userId: user.id, // Use the user ID from the response
+              ...percentageScores,
+            } as CreateResultDTO), // Provide the type assertion
+          })
+            .then((response) => response.json())
+            .then((personalityResult: PersonalityResult | null) => {
+              if (personalityResult) {
+                // Personality result created successfully
+                console.log("Personality Result Created:", personalityResult);
+              } else {
+                // Handle error if personality result creation failed
+                console.error("Failed to create Personality Result");
+              }
+            })
+            .catch((error) => {
+              // Handle error if fetch fails
+              console.error("Error creating Personality Result:", error);
+            });
+        } else {
+          // Handle error if user creation failed
+          console.error("Failed to create User");
+        }
+      })
+      .catch((error) => {
+        // Handle error if fetch fails
+        console.error("Error creating User:", error);
+      });
   }, []);
 
   interface TraitScoreLevels {
@@ -92,6 +148,18 @@ const Results: React.FC<ResultsProps> = ({ formData }) => {
     }
 
     return traitScores;
+  };
+
+  function convertToPercentage(traitScore: number): number {
+    return (traitScore / 40) * 100;
+  }
+
+  const percentageScores = {
+    OpennessScore: convertToPercentage(traitScores.O),
+    ConscientiousnessScore: convertToPercentage(traitScores.C),
+    ExtraversionScore: convertToPercentage(traitScores.E),
+    AgreeablenessScore: convertToPercentage(traitScores.A),
+    NeuroticismScore: convertToPercentage(traitScores.N),
   };
 
   const OLevel: TraitLevel = getTraitLevel(traitScores.O);
@@ -212,38 +280,43 @@ const Results: React.FC<ResultsProps> = ({ formData }) => {
             <div style={{ paddingBottom: "20px" }}>
               <h2>Openness (O) </h2>
               <p style={{ fontStyle: "italic", fontWeight: "600" }}>
-                {traitScores.O} - {OLevel}
+                {percentageScores.OpennessScore}% - {OLevel}
               </p>
               {getTraitDescription("O", OLevel)}
             </div>
             <div style={{ paddingBottom: "20px" }}>
               <h2>Conscientiousness (C)</h2>
               <p style={{ fontStyle: "italic", fontWeight: "600" }}>
-                {traitScores.C} - {getTraitLevel(traitScores.C)}
+                {percentageScores.ConscientiousnessScore}% -{" "}
+                {getTraitLevel(traitScores.C)}
               </p>
               {getTraitDescription("C", CLevel)}
             </div>
             <div style={{ paddingBottom: "20px" }}>
               <h2>Extraversion (E)</h2>
               <p style={{ fontStyle: "italic", fontWeight: "600" }}>
-                {traitScores.E} - {getTraitLevel(traitScores.E)}
+                {percentageScores.ExtraversionScore}% -{" "}
+                {getTraitLevel(traitScores.E)}
               </p>
               {getTraitDescription("E", ELevel)}
             </div>
             <div style={{ paddingBottom: "20px" }}>
               <h2>Agreeableness (A)</h2>
               <p style={{ fontStyle: "italic", fontWeight: "600" }}>
-                {traitScores.A} - {getTraitLevel(traitScores.A)}
+                {percentageScores.AgreeablenessScore}% -{" "}
+                {getTraitLevel(traitScores.A)}
               </p>
               {getTraitDescription("A", ALevel)}
             </div>
             <div style={{ paddingBottom: "20px" }}>
               <h2>Neuroticism (N)</h2>
               <p style={{ fontStyle: "italic", fontWeight: "600" }}>
-                {traitScores.N} - {getTraitLevel(traitScores.N)}
+                {percentageScores.NeuroticismScore}% -{" "}
+                {getTraitLevel(traitScores.N)}
               </p>
               {getTraitDescription("N", NLevel)}
             </div>
+            <PersonalityChart traitScores={Object.values(percentageScores)} />
           </div>
           <StyledHeader>Big Five</StyledHeader>
         </StyledResults>

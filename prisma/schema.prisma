@@ -1,0 +1,32 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                Int                 @id @default(autoincrement())
+  firstName         String?             @default("")
+  lastName          String?             @default("")
+  age               Int?                @default(0)
+  zipCode           String?             @default("")
+  race         String?             @default("")
+  PersonalityResult PersonalityResult[]
+}
+
+model PersonalityResult {
+  id                     Int  @id @default(autoincrement())
+  user                   User @relation(fields: [userId], references: [id])
+  userId                 Int
+  OpennessScore          Int
+  ConscientiousnessScore Int
+  ExtraversionScore      Int
+  AgreeablenessScore     Int
+  NeuroticismScore       Int
+}
