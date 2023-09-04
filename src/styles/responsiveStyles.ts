@@ -23,7 +23,7 @@ const fadeOut = keyframes`
 `;
 
 const animationStyles = css`
-  animation-duration: 0.5s; /* Adjust the duration as needed */
+  animation-duration: 0.5s;
   animation-timing-function: ease-in-out;
 `;
 

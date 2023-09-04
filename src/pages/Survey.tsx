@@ -5,6 +5,8 @@ import React, { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import questions from "../data/questions.json";
 import QuestionSet from "./QuestionSet";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 export interface Question {
   id: number;
@@ -13,20 +15,27 @@ export interface Question {
   trait: string;
 }
 
-export interface FormData {
-  [key: number]: string;
+export interface FormDataItem {
+  sign: string;
+  trait: string;
+  value: string;
 }
 
 const Survey: React.FC<{}> = () => {
   // Load questions data from a JSON file
+  const router = useRouter();
   const questionsData: Question[] = questions;
-  const [formData, setFormData] = useState<FormData>({});
+  const [formData, setFormData] = useState<Record<string, FormDataItem>>({});
   const [percentageCompleted, setPercentageCompleted] = useState<number>(0);
 
   const methods = useForm();
 
-  const onSubmit = (data: FormData) => {
-    setFormData(data); // Store the form data in the state
+  const onSubmit = (data: Record<string, FormDataItem>) => {
+    setFormData(data);
+    router.push({
+      pathname: "/results",
+      query: { formData: JSON.stringify(formData) },
+    });
   };
 
   const onPercentageCompletedChange = (percentage: number) => {
@@ -64,7 +73,7 @@ const Survey: React.FC<{}> = () => {
                 value={percentageCompleted}
                 sx={{ width: "100%", marginBottom: 2, marginTop: 2 }}
               />
-              <div style={{ paddingLeft: "500px" }}>
+              <div style={{ paddingLeft: "500px", color: "#debfb4" }}>
                 <span>{percentageCompleted}% completed</span>
               </div>
             </Box>

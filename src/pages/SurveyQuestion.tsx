@@ -7,7 +7,7 @@ import {
   RadioGroup,
   Typography,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useFormContext, Controller } from "react-hook-form";
 import Flashing from "../components/Flashing";
 import { animatedStyles } from "../styles/responsiveStyles";
@@ -26,7 +26,9 @@ interface SurveyQuestionProps {
   onValueChange: (value: string) => void;
   selectedValue: string | undefined;
   isFlashing: boolean;
-  isAppearing?: boolean;
+  isAppearing: boolean;
+  shouldNotAnimate: boolean;
+  showAnimation: boolean;
 }
 
 const SurveyQuestion: React.FC<SurveyQuestionProps> = ({
@@ -36,6 +38,8 @@ const SurveyQuestion: React.FC<SurveyQuestionProps> = ({
   selectedValue,
   isAppearing,
   isFlashing,
+  shouldNotAnimate,
+  showAnimation,
 }) => {
   const { control } = useFormContext();
 
@@ -43,82 +47,7 @@ const SurveyQuestion: React.FC<SurveyQuestionProps> = ({
     onValueChange(event.target.value);
   };
 
-  return isAppearing ? (
-    <AnimatedGrid isAppearing={isAppearing}>
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <Typography variant="h6">{question}</Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Controller
-            name={name}
-            control={control}
-            render={({ field }) => (
-              <RadioGroup
-                {...field}
-                row
-                aria-label={name}
-                name={name}
-                value={selectedValue || ""}
-                onChange={handleRadioChange}
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                }}
-              >
-                <Flashing isFlashing={selectedValue === "1" && isFlashing}>
-                  <FormControlLabel
-                    value="1"
-                    control={
-                      <Radio
-                        sx={{
-                          "& .MuiSvgIcon-root": {
-                            fontSize: 32,
-                          },
-                        }}
-                      />
-                    }
-                    label="Strongly Disagree"
-                    labelPlacement="bottom"
-                  />
-                </Flashing>
-                <Flashing isFlashing={selectedValue === "2" && isFlashing}>
-                  <FormControlLabel value="2" control={<Radio />} label="" />
-                </Flashing>
-                <Flashing isFlashing={selectedValue === "3" && isFlashing}>
-                  <FormControlLabel
-                    value="3"
-                    control={<Radio size="small" />}
-                    label="Neutral"
-                    labelPlacement="bottom"
-                  />
-                </Flashing>
-                <Flashing isFlashing={selectedValue === "4" && isFlashing}>
-                  <FormControlLabel value="4" control={<Radio />} label="" />
-                </Flashing>
-                <Flashing isFlashing={selectedValue === "5" && isFlashing}>
-                  <FormControlLabel
-                    value="5"
-                    control={
-                      <Radio
-                        sx={{
-                          "& .MuiSvgIcon-root": {
-                            fontSize: 32,
-                          },
-                        }}
-                      />
-                    }
-                    label="Strongly Agree"
-                    labelPlacement="bottom"
-                  />
-                </Flashing>
-              </RadioGroup>
-            )}
-          />
-        </Grid>
-      </Grid>
-    </AnimatedGrid>
-  ) : (
+  const content = (
     <Grid container spacing={2}>
       <Grid item xs={12}>
         <Typography variant="h6">{question}</Typography>
@@ -135,7 +64,11 @@ const SurveyQuestion: React.FC<SurveyQuestionProps> = ({
               name={name}
               value={selectedValue || ""}
               onChange={handleRadioChange}
-              style={{ display: "flex", justifyContent: "space-between" }}
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                // borderRadius: "6px",
+              }}
             >
               <Flashing isFlashing={selectedValue === "1" && isFlashing}>
                 <FormControlLabel
@@ -154,7 +87,12 @@ const SurveyQuestion: React.FC<SurveyQuestionProps> = ({
                 />
               </Flashing>
               <Flashing isFlashing={selectedValue === "2" && isFlashing}>
-                <FormControlLabel value="2" control={<Radio />} label="" />
+                <FormControlLabel
+                  value="2"
+                  control={<Radio />}
+                  label="     "
+                  labelPlacement="bottom"
+                />
               </Flashing>
               <Flashing isFlashing={selectedValue === "3" && isFlashing}>
                 <FormControlLabel
@@ -165,7 +103,12 @@ const SurveyQuestion: React.FC<SurveyQuestionProps> = ({
                 />
               </Flashing>
               <Flashing isFlashing={selectedValue === "4" && isFlashing}>
-                <FormControlLabel value="4" control={<Radio />} label="" />
+                <FormControlLabel
+                  value="4"
+                  control={<Radio />}
+                  label="     "
+                  labelPlacement="bottom"
+                />
               </Flashing>
               <Flashing isFlashing={selectedValue === "5" && isFlashing}>
                 <FormControlLabel
@@ -188,6 +131,11 @@ const SurveyQuestion: React.FC<SurveyQuestionProps> = ({
         />
       </Grid>
     </Grid>
+  );
+  return shouldNotAnimate || !showAnimation ? (
+    content
+  ) : (
+    <AnimatedGrid isAppearing={isAppearing}>{content}</AnimatedGrid>
   );
 };
 

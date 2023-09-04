@@ -1,0 +1,27 @@
+{
+  "O": {
+    "low": "Individuals with low openness tend to prefer routine and familiarity. They may be more conventional and traditional in their thinking and behavior. They might be less interested in new ideas, art, or unconventional experiences.",
+    "moderate": "People with moderate scores are somewhat open to new experiences but also value routine. They strike a balance between tradition and novelty. They can appreciate creativity and originality but may not actively seek out highly unconventional experiences.",
+    "high": "Individuals with high openness scores are very open to new experiences and ideas. They are often curious, imaginative, and willing to explore the unknown. They may have a strong interest in the arts, nature, and intellectual pursuits. They tend to be more creative and open-minded."
+  },
+  "C": {
+    "low": "Those with low conscientiousness scores may struggle with organization and self-discipline. They might be impulsive and less likely to follow routines. Completing tasks and meeting deadlines can be challenging for them.",
+    "moderate": "People with moderate conscientiousness are reasonably organized and goal-oriented. They can manage tasks effectively but may not be overly strict about routines. They find a balance between spontaneity and structure.",
+    "high": "Individuals with high conscientiousness are highly organized and disciplined. They are reliable, responsible, and thrive on schedules. They set and achieve goals effectively, pay attention to detail, and are known for their strong work ethic."
+  },
+  "E": {
+    "low": "Those with low extraversion scores tend to be introverted. They are reserved, often preferring solitary or small-group activities. They may find socializing draining and may need more time alone to recharge.",
+    "moderate": "People with moderate extraversion are adaptable. They can enjoy socializing but also appreciate quiet time alone. They are comfortable in various social situations but don't need constant interaction.",
+    "high": "Individuals with high extraversion are extroverted. They are outgoing, enthusiastic, and thrive in social settings. They enjoy meeting new people, being the center of attention, and often take leadership roles in groups."
+  },
+  "A": {
+    "low": "Those with low agreeableness may be more competitive and less concerned with others' feelings. They may be straightforward and assertive, sometimes coming across as less empathetic or accommodating.",
+    "moderate": "People with moderate agreeableness are generally cooperative and considerate. They value interpersonal relationships and are sensitive to others' needs and feelings. They can assert themselves when necessary but also prioritize harmony.",
+    "high": "Individuals with high agreeableness are highly compassionate and empathetic. They are warm, friendly, and prioritize maintaining positive relationships. They are often seen as altruistic, supportive, and easy to get along with."
+  },
+  "N": {
+    "low": "Those with low neuroticism scores tend to be emotionally stable and resilient. They handle stress well, are less prone to anxiety or mood swings, and generally maintain a positive outlook.",
+    "moderate": "People with moderate neuroticism experience some emotional ups and downs but can manage stress effectively. They are adaptable and can cope with life's challenges.",
+    "high": "Individuals with high neuroticism may be more emotionally reactive. They may experience frequent mood swings, anxiety, and stress. They can be sensitive to criticism and may find it challenging to manage their emotions in stressful situations."
+  }
+}

@@ -8,7 +8,7 @@ const flash = keyframes`
     background-color: transparent;
   }
   50% {
-    background-color: lightblue; /* Change to the desired highlight color */
+    background-color: #c9ab91;
   }
   100% {
     background-color: transparent;
