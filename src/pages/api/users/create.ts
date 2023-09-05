@@ -10,7 +10,7 @@ export type CreateUserDTO = {
   lastName?: string;
   age?: number;
   zipCode?: string;
-  ethnicity?: string;
+  race?: string;
 };
 
 export const createUser = async (user: CreateUserDTO): Promise<User | null> => {
@@ -21,7 +21,7 @@ export const createUser = async (user: CreateUserDTO): Promise<User | null> => {
       lastName: user?.lastName || undefined,
       age: user?.age || undefined,
       zipCode: user?.zipCode || undefined,
-      ethnicity: user?.ethnicity || undefined,
+      race: user?.race || undefined,
     },
   });
   if (!newUser) {
@@ -43,7 +43,7 @@ const handler = async (
         .status(404)
         .json({ statusCode: 404, message: "Could not create user" });
     }
-  } catch (err) {
+  } catch (err: any) {
     res.status(500).json({ statusCode: 500, message: err.message });
   }
 };

@@ -24,7 +24,7 @@ export default async (
         results: results,
       } as ReadManyResultsDTO);
     }
-  } catch (err) {
+  } catch (err: any) {
     res.status(500);
     res.json({ statusCode: 500, message: err.message });
   }

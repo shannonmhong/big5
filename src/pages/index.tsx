@@ -1,6 +1,9 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import React from "react";
 import Survey from "./Survey";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import AppMenu from "@/components/AppMenu";
 
 const theme = createTheme({
   typography: {
@@ -23,7 +26,11 @@ const Home: React.FC = () => {
             }
           `}
         </style>
+        <AppMenu />
         <Survey />
+        <button>
+          <FontAwesomeIcon icon={faBars} />
+        </button>
       </div>
     </ThemeProvider>
   );

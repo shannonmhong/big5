@@ -54,7 +54,7 @@ const handler = async (
         message: "Could not submit personality result data",
       });
     }
-  } catch (err) {
+  } catch (err: any) {
     res.status(500).json({ statusCode: 500, message: err.message });
   }
 };

@@ -10,6 +10,7 @@ import { PersonalityResult, User } from "@prisma/client";
 import { CreateResultDTO } from "../api/personalityResults/create";
 import { CreateUserDTO } from "../api/users/create";
 import PersonalityChart from "./PersonalityChart";
+import AppMenu from "@/components/AppMenu";
 
 // Define interface for personality descriptions - describes structure of json
 interface PersonalityDescriptions {
@@ -73,7 +74,7 @@ const Results: React.FC<ResultsProps> = ({ formData }) => {
             body: JSON.stringify({
               userId: user.id, // Use the user ID from the response
               ...percentageScores,
-            } as CreateResultDTO), // Provide the type assertion
+            } as CreateResultDTO),
           })
             .then((response) => response.json())
             .then((personalityResult: PersonalityResult | null) => {
@@ -252,6 +253,7 @@ const Results: React.FC<ResultsProps> = ({ formData }) => {
           `}
         </style>
         <StyledResults>
+          <AppMenu />
           <div>
             <h1 style={{ color: "lightgray" }}>
               Your Personality Trait Scores

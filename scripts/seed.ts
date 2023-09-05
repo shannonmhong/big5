@@ -1,10 +1,20 @@
+import seedrandom, { PRNG } from "seedrandom";
 import { PrismaClient } from "@prisma/client";
 import { User, PersonalityResult } from "@prisma/client";
 
 const prisma = new PrismaClient();
 import { faker } from "@faker-js/faker";
 
+// Function to seed faker with a specific seed
+const seedFaker = (seed: PRNG | null) => {
+  if (seed) {
+    faker.seed(seed() * 10);
+  }
+};
+
 export const generateRandomUserData = () => {
+  const num = seedrandom();
+  seedFaker(num);
   const firstName = faker.person.firstName();
   const lastName = faker.person.lastName();
   const age = faker.number.int({ min: 18, max: 80 });
@@ -28,11 +38,14 @@ export const generateRandomUserData = () => {
 };
 
 export const generateRandomPersonalityResultData = (userId: number) => {
-  const opennessScore = faker.number.int({ min: 0, max: 40 });
-  const conscientiousnessScore = faker.number.int({ min: 0, max: 40 });
-  const extraversionScore = faker.number.int({ min: 0, max: 40 });
-  const agreeablenessScore = faker.number.int({ min: 0, max: 40 });
-  const neuroticismScore = faker.number.int({ min: 0, max: 40 });
+  const num = seedrandom();
+  seedFaker(num);
+
+  const opennessScore = faker.number.int({ min: 0, max: 100 });
+  const conscientiousnessScore = faker.number.int({ min: 0, max: 100 });
+  const extraversionScore = faker.number.int({ min: 0, max: 100 });
+  const agreeablenessScore = faker.number.int({ min: 0, max: 100 });
+  const neuroticismScore = faker.number.int({ min: 0, max: 100 });
 
   return {
     userId,
