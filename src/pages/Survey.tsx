@@ -6,7 +6,6 @@ import { FormProvider, useForm } from "react-hook-form";
 import questions from "../data/questions.json";
 import QuestionSet from "./QuestionSet";
 import { useRouter } from "next/router";
-import Link from "next/link";
 
 export interface Question {
   id: number;

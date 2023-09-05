@@ -16,5 +16,287 @@
     "text": "I am always prepared",
     "sign": "plus",
     "trait": "C"
+  },
+  {
+    "id": 3,
+    "text": "I get stressed out easily",
+    "sign": "minus",
+    "trait": "N"
+  },
+  {
+    "id": 4,
+    "text": "I have a rich vocabulary",
+    "sign": "plus",
+    "trait": "O"
+  },
+  {
+    "id": 5,
+    "text": "I don't talk a lot",
+    "sign": "minus",
+    "trait": "E"
+  },
+  {
+    "id": 6,
+    "text": "I am interested in people",
+    "sign": "plus",
+    "trait": "A"
+  },
+  {
+    "id": 7,
+    "text": "I leave my belongings around",
+    "sign": "minus",
+    "trait": "C"
+  },
+  {
+    "id": 8,
+    "text": "I am relaxed most of the time",
+    "sign": "plus",
+    "trait": "N"
+  },
+  {
+    "id": 9,
+    "text": "I have difficulty understanding abstract ideas",
+    "sign": "minus",
+    "trait": "O"
+  },
+  {
+    "id": 10,
+    "text": "I feel comfortable around people",
+    "sign": "plus",
+    "trait": "E"
+  },
+  {
+    "id": 11,
+    "text": "I insult people",
+    "sign": "minus",
+    "trait": "A"
+  },
+  {
+    "id": 12,
+    "text": "I pay attention to details",
+    "sign": "plus",
+    "trait": "C"
+  },
+  {
+    "id": 13,
+    "text": "I worry about things",
+    "sign": "minus",
+    "trait": "N"
+  },
+  {
+    "id": 14,
+    "text": "I have a vivid imagination",
+    "sign": "plus",
+    "trait": "O"
+  },
+  {
+    "id": 15,
+    "text": "I keep in the background",
+    "sign": "minus",
+    "trait": "E"
+  },
+  {
+    "id": 16,
+    "text": "I sympathize with others' feelings",
+    "sign": "plus",
+    "trait": "A"
+  },
+  {
+    "id": 17,
+    "text": "I make a mess of things",
+    "sign": "minus",
+    "trait": "C"
+  },
+  {
+    "id": 18,
+    "text": "I seldom feel blue",
+    "sign": "plus",
+    "trait": "N"
+  },
+  {
+    "id": 19,
+    "text": "I am not interested in abstract ideas",
+    "sign": "minus",
+    "trait": "O"
+  },
+  {
+    "id": 20,
+    "text": "I start conversations",
+    "sign": "plus",
+    "trait": "E"
+  },
+  {
+    "id": 21,
+    "text": "I am not interested in other people's problems",
+    "sign": "minus",
+    "trait": "A"
+  },
+  {
+    "id": 22,
+    "text": "I get chores done right away",
+    "sign": "plus",
+    "trait": "C"
+  },
+  {
+    "id": 23,
+    "text": "I am easily disturbed",
+    "sign": "minus",
+    "trait": "N"
+  },
+  {
+    "id": 24,
+    "text": "I have excellent ideas",
+    "sign": "plus",
+    "trait": "O"
+  },
+  {
+    "id": 25,
+    "text": "I have little to say",
+    "sign": "minus",
+    "trait": "E"
+  },
+  {
+    "id": 26,
+    "text": "I have a soft heart",
+    "sign": "plus",
+    "trait": "A"
+  },
+  {
+    "id": 27,
+    "text": "I often forget to put things back in their proper place",
+    "sign": "minus",
+    "trait": "C"
+  },
+  {
+    "id": 28,
+    "text": "I get upset easily",
+    "sign": "minus",
+    "trait": "N"
+  },
+  {
+    "id": 29,
+    "text": "I do not have a good imagination",
+    "sign": "minus",
+    "trait": "O"
+  },
+  {
+    "id": 30,
+    "text": "I talk to a lot of different people at parties",
+    "sign": "plus",
+    "trait": "E"
+  },
+  {
+    "id": 31,
+    "text": "I am not really interested in others",
+    "sign": "minus",
+    "trait": "A"
+  },
+  {
+    "id": 32,
+    "text": "I like order",
+    "sign": "plus",
+    "trait": "C"
+  },
+  {
+    "id": 33,
+    "text": "I change my mood a lot",
+    "sign": "minus",
+    "trait": "N"
+  },
+  {
+    "id": 34,
+    "text": "I am quick to understand things",
+    "sign": "plus",
+    "trait": "O"
+  },
+  {
+    "id": 35,
+    "text": "I don't like to draw attention to myself",
+    "sign": "minus",
+    "trait": "E"
+  },
+  {
+    "id": 36,
+    "text": "I take time out for others",
+    "sign": "plus",
+    "trait": "A"
+  },
+  {
+    "id": 37,
+    "text": "I shirk my duties",
+    "sign": "minus",
+    "trait": "C"
+  },
+  {
+    "id": 38,
+    "text": "I have frequent mood swings",
+    "sign": "minus",
+    "trait": "N"
+  },
+  {
+    "id": 39,
+    "text": "I use difficult words",
+    "sign": "plus",
+    "trait": "O"
+  },
+  {
+    "id": 40,
+    "text": "I don't mind being the center of attention",
+    "sign": "plus",
+    "trait": "E"
+  },
+  {
+    "id": 41,
+    "text": "I feel others' emotions",
+    "sign": "plus",
+    "trait": "A"
+  },
+  {
+    "id": 42,
+    "text": "I follow a schedule",
+    "sign": "plus",
+    "trait": "C"
+  },
+  {
+    "id": 43,
+    "text": "I get irritated easily",
+    "sign": "minus",
+    "trait": "N"
+  },
+  {
+    "id": 44,
+    "text": "I spend time reflecting on things",
+    "sign": "plus",
+    "trait": "O"
+  },
+  {
+    "id": 45,
+    "text": "I am quiet around strangers",
+    "sign": "minus",
+    "trait": "E"
+  },
+  {
+    "id": 46,
+    "text": "I make people feel at ease",
+    "sign": "plus",
+    "trait": "A"
+  },
+  {
+    "id": 47,
+    "text": "I am exacting in my work",
+    "sign": "plus",
+    "trait": "C"
+  },
+  {
+    "id": 48,
+    "text": "I often feel blue",
+    "sign": "minus",
+    "trait": "N"
+  },
+  {
+    "id": 49,
+    "text": "I am full of ideas",
+    "sign": "plus",
+    "trait": "O"
   }
 ]

@@ -3,13 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Question, FormDataItem } from "./Survey";
 import { StyledQuestionSet } from "@/components/StyledComponents/StyledQuestionSet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronUp,
-  faChevronDown,
-  faCheck,
-} from "@fortawesome/free-solid-svg-icons";
-import LinearProgress from "@mui/material/LinearProgress";
-import { Box } from "@mui/material";
+import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 interface QuestionSetProps {
   questionsData: Question[];

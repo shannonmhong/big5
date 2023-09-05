@@ -198,14 +198,14 @@ const AdminPage: React.FC = () => {
               />
             </div>
             <p>
-              "The histogram above displays the distribution of scores for the
+              The histogram above displays the distribution of scores for the
               selected personality trait. Each bar represents a range of scores,
               and the height of each bar represents the frequency or number of
               individuals who received scores within that range. This
               visualization allows us to see how the scores are distributed
               across the surveyed population for the chosen trait, providing
               insights into the personality trait's prevalence and variation
-              within the group."
+              within the group.
             </p>
           </div>
         </div>
