@@ -7,28 +7,48 @@ import {
   faHouse,
   faSquarePollVertical,
 } from "@fortawesome/free-solid-svg-icons";
-import router from "next/router";
+import { useEffect, useRef } from "react";
+import { useRouter } from "next/router";
 
 function AppMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const anchorRef = useRef<HTMLButtonElement | null>(null);
+  const router = useRouter();
   const open = Boolean(anchorEl);
+
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
   const handleClose = (route: string) => {
     if (route) {
-      router.push({
-        pathname: route,
-      });
+      router.push(route);
     }
     setAnchorEl(null);
   };
+
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (
+        anchorRef.current &&
+        !anchorRef.current.contains(event.target as Node)
+      ) {
+        setAnchorEl(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
 
   return (
     <div>
       <button
         id="basic-button"
+        ref={anchorRef}
         style={{
           position: "fixed",
           top: "50px",
@@ -46,7 +66,7 @@ function AppMenu() {
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}
-        onClose={handleClose}
+        onClose={() => handleClose("")}
         anchorOrigin={{
           vertical: "top",
           horizontal: "left",
